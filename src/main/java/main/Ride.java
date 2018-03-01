@@ -30,6 +30,27 @@ public class Ride {
         return id == ride.id;
     }
 
+
+    public int getId() {
+        return id;
+    }
+
+    public Cord getStart() {
+        return start;
+    }
+
+    public Cord getFinish() {
+        return finish;
+    }
+
+    public int getEarliestStart() {
+        return earliestStart;
+    }
+
+    public int getLatestFinish() {
+        return latestFinish;
+    }
+
     @Override
     public int hashCode() {
         return id;

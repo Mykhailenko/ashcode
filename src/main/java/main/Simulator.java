@@ -1,6 +1,8 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Simulator {
@@ -15,10 +17,34 @@ public class Simulator {
 
     private int T;
 
-    private Set<Car> cars = new HashSet<Car>();
+    private List<Car> cars = new ArrayList<Car>();
 
     private Set<Ride> nonAsignedRides = new HashSet<Ride>();
 
+
+    private boolean tryToAssign(int t) {
+        Car free = null;
+        for (Car car : cars) {
+            if(car.isFree()){
+                free = car;
+                break;
+            }
+        }
+
+        if(free != null){
+            for (Ride ride : nonAsignedRides) {
+                int k = koef(t, free, ride);
+            }
+
+        }
+
+
+        return false;
+    }
+
+    private int koef(int t, Car free, Ride ride) {
+        ride.getEarliestStart() - ()
+    }
 
     public int score(){
         return 0;
@@ -26,7 +52,7 @@ public class Simulator {
 
     public void simulate(){
         for(int t = 0; t < T; ++t){
-            while(tryToAssign());
+            while(tryToAssign(t));
 
             for (Car car : cars) {
                 move(car);
@@ -36,10 +62,6 @@ public class Simulator {
     }
 
     private void move(Car car) {
-    }
-
-    private boolean tryToAssign() {
-        return false;
     }
 
     public int getB() {
@@ -82,12 +104,11 @@ public class Simulator {
         T = t;
     }
 
-
-    public Set<Car> getCars() {
+    public List<Car> getCars() {
         return cars;
     }
 
-    public void setCars(Set<Car> cars) {
+    public void setCars(List<Car> cars) {
         this.cars = cars;
     }
 

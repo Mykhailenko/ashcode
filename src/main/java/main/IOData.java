@@ -1,11 +1,7 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 
 public class IOData {
     public static Simulator fromFile(String path) throws IOException {
@@ -44,9 +40,20 @@ public class IOData {
             simulator.getCars().add(new Car(i));
         }
 
+        br.close();
         return simulator;
     }
 
-    public static void writeToFile(String arg, Set<Car> cars) {
+    public static void writeToFile(String path, List<Car> cars) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(path));
+        for (Car car : cars) {
+            StringBuffer sb = new StringBuffer(Integer.toString(car.getCompleted().size()));
+            for (Ride ride : car.getCompleted()) {
+                sb.append(" " + ride.getId());
+            }
+            bw.write(sb.toString());
+        }
+        bw.flush();
+        bw.close();
     }
 }
