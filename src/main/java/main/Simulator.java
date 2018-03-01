@@ -25,18 +25,24 @@ public class Simulator {
     private boolean tryToAssign(int t) {
         Car free = null;
         for (Car car : cars) {
-            if(car.isFree()){
+            if (car.isFree()) {
                 free = car;
                 break;
             }
         }
 
-        if(free != null){
+        if (free != null) {
             for (Ride ride : nonAsignedRides) {
                 int k = koef(t, free, ride);
-                if(k >= 0){
-
+                if (k >= 0) {
+                    ride.setPrice(B + ride.distanceD());
+                } else {
+                    int k2 = ride.getLatestFinish() - (t + free.getCord().dist(ride.getStart()) + ride.distanceD());
+                    if (k2 > 0) {
+                        
+                    }
                 }
+
             }
 
         }
@@ -46,16 +52,16 @@ public class Simulator {
     }
 
     private int koef(int t, Car free, Ride ride) {
-        return ride.getEarliestStart() - (t + free.getCord().dist(ride.getStart()  ));
+        return ride.getEarliestStart() - (t + free.getCord().dist(ride.getStart()));
     }
 
-    public int score(){
+    public int score() {
         return 0;
     }
 
-    public void simulate(){
-        for(int t = 0; t < T; ++t){
-            while(tryToAssign(t));
+    public void simulate() {
+        for (int t = 0; t < T; ++t) {
+            while (tryToAssign(t)) ;
 
             for (Car car : cars) {
                 move(car);

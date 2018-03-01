@@ -11,6 +11,19 @@ public class Ride {
 
     private final int latestFinish;
 
+    private int price;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int distanceD(){
+        return start.dist(finish);
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
     public Ride(int id, Cord start, Cord finish, int earliestStart, int latestFinish) {
         this.id = id;
