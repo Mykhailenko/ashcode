@@ -8,6 +8,7 @@ public class IOData {
         BufferedReader br = new BufferedReader(new FileReader(path));
         Set<Ride> rides = new HashSet<Ride>();
         Simulator simulator = new Simulator();
+        simulator.fileName = path;
         String line = null;
         int rideId = 0;
         for(int i = 0; (line = br.readLine()) != null; ++i){

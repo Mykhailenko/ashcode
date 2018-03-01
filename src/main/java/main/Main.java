@@ -12,7 +12,7 @@ public class Main {
 
         simulator.simulate();
 
-        System.out.println("Score " + simulator.score());
+        System.out.println(simulator.score());
 
         IOData.writeToFile(out, simulator.getCars());
 

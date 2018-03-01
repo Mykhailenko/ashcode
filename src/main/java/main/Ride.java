@@ -11,17 +11,27 @@ public class Ride {
 
     private final int latestFinish;
 
-    private int price;
+    private double price;
 
-    public int getPrice() {
+    private int prostoy;
+
+    public int getProstoy() {
+        return prostoy;
+    }
+
+    public void setProstoy(int prostoy) {
+        this.prostoy = prostoy;
+    }
+
+    public double getPrice() {
         return price;
     }
 
-    public int distanceD(){
+    public double distanceD(){
         return start.dist(finish);
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -67,5 +77,15 @@ public class Ride {
     @Override
     public int hashCode() {
         return id;
+    }
+
+
+    private double price2;
+    public void setPrice2(double newk) {
+        price2 = newk;
+    }
+
+    public double getPrice2() {
+        return price2;
     }
 }
