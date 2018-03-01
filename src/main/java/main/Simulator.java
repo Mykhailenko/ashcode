@@ -17,6 +17,8 @@ public class Simulator {
 
     private int T;
 
+    private int score = 0;
+
     private List<Car> cars = new ArrayList<Car>();
 
     private Set<Ride> nonAsignedRides = new HashSet<Ride>();
@@ -59,6 +61,7 @@ public class Simulator {
                 }
             }
             nonAsignedRides.remove(max);
+            score += max.getPrice();
             free.setRide(max, t);
             return true;
         } else {
@@ -72,7 +75,7 @@ public class Simulator {
     }
 
     public int score() {
-        return 0;
+        return score;
     }
 
     public void simulate() {

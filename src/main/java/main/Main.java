@@ -5,9 +5,8 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        String in = "/home/hlib/activeeon/ashcode/a_example.in";
-
-        String out = "/home/hlib/activeeon/ashcode/a_example.out";
+        String in = args[0];
+        String out = args[1];
 
         Simulator simulator = IOData.fromFile(in);
 
