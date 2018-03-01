@@ -17,6 +17,11 @@ public class Car {
         this.id = id;
     }
 
+
+    private int rideTime = 0;
+
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -33,9 +38,14 @@ public class Car {
     }
 
     public boolean isFree(){
-        return ride == null;
+        return rideTime > 0;
     }
 
+    public void move(){
+        if(rideTime > 0){
+            --rideTime;
+        }
+    }
     public List<Ride> getCompleted() {
         return completed;
     }
@@ -48,7 +58,15 @@ public class Car {
         return ride;
     }
 
-    public void setRide(Ride ride) {
+    public void setRide(Ride ride, int t) {
+        rideTime = 0;
+        int t1 = this.cord.dist(ride.getStart());
+        rideTime += t1;
+        if(ride.getEarliestStart() > t + t1){
+            rideTime += ride.getEarliestStart() - (t + t1);
+        }
+        rideTime += ride.getStart().dist(ride.getFinish());
+        cord = ride.getFinish();
         this.ride = ride;
     }
 
