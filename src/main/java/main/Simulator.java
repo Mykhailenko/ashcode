@@ -32,7 +32,7 @@ public class Simulator {
         }
 
         if (free != null) {
-            if(nonAsignedRides.isEmpty()){
+            if (nonAsignedRides.isEmpty()) {
                 return false;
             }
             for (Ride ride : nonAsignedRides) {
@@ -47,22 +47,24 @@ public class Simulator {
                         ride.setPrice(0);
                     }
                 }
-                Ride max = null;
-                for (Ride r : nonAsignedRides) {
-                    if(max == null){
+            }
+            Ride max = null;
+            for (Ride r : nonAsignedRides) {
+                if (max == null) {
+                    max = r;
+                } else {
+                    if (max.getPrice() < r.getPrice()) {
                         max = r;
-                    } else {
-                        if( max.getPrice() < r.getPrice()){
-                            max = r;
-                        }
                     }
                 }
-                free.setRide(max, t);
             }
+            nonAsignedRides.remove(max);
+            free.setRide(max, t);
             return true;
-        }else {
+        } else {
             return false;
         }
+
     }
 
     private int koef(int t, Car free, Ride ride) {
@@ -85,9 +87,9 @@ public class Simulator {
     }
 
     private void move(Car car, int t) {
-        if(car.isFree()){
+        if (car.isFree()) {
             return;
-        }else{
+        } else {
             Ride ride = car.getRide();
 
         }

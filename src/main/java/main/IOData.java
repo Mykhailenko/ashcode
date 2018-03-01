@@ -51,7 +51,7 @@ public class IOData {
             for (Ride ride : car.getCompleted()) {
                 sb.append(" " + ride.getId());
             }
-            bw.write(sb.toString());
+            bw.write(sb.toString() + "\n");
         }
         bw.flush();
         bw.close();

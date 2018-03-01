@@ -38,12 +38,16 @@ public class Car {
     }
 
     public boolean isFree(){
-        return rideTime > 0;
+        return rideTime == 0;
     }
 
     public void move(){
         if(rideTime > 0){
             --rideTime;
+            if(rideTime == 0){
+                completed.add(ride);
+                ride = null;
+            }
         }
     }
     public List<Ride> getCompleted() {

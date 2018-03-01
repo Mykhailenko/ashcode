@@ -4,13 +4,18 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Simulator simulator = IOData.fromFile(args[0]);
+
+        String in = "/home/hlib/activeeon/ashcode/a_example.in";
+
+        String out = "/home/hlib/activeeon/ashcode/a_example.out";
+
+        Simulator simulator = IOData.fromFile(in);
 
         simulator.simulate();
 
         System.out.println("Score " + simulator.score());
 
-        IOData.writeToFile(args[1], simulator.getCars());
+        IOData.writeToFile(out, simulator.getCars());
 
 
     }
