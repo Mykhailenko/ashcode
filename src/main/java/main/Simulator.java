@@ -34,6 +34,9 @@ public class Simulator {
         if(free != null){
             for (Ride ride : nonAsignedRides) {
                 int k = koef(t, free, ride);
+                if(k >= 0){
+
+                }
             }
 
         }
@@ -43,7 +46,7 @@ public class Simulator {
     }
 
     private int koef(int t, Car free, Ride ride) {
-        ride.getEarliestStart() - ()
+        return ride.getEarliestStart() - (t + free.getCord().dist(ride.getStart()  ));
     }
 
     public int score(){
