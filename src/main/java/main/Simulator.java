@@ -7,6 +7,16 @@ import java.util.Set;
 
 public class Simulator {
 
+    private String algo;
+
+    public String getAlgo() {
+        return algo;
+    }
+
+    public void setAlgo(String algo) {
+        this.algo = algo;
+    }
+
     private int B;
 
     private int R;
